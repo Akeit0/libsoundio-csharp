@@ -9,7 +9,7 @@
 
         <!-- NuGet Package Information -->
         <IsPackable>false</IsPackable>
-        <PackageVersion>$(Version)</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <Author>Akito Inoue</Author>
         <PackageTags>sound, native</PackageTags>
         <PackageProjectUrl>https://github.com/Akeit0/libsoundio-csharp</PackageProjectUrl>

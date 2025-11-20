@@ -5,20 +5,8 @@
         <LangVersion>14</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyName>LibSoundIoCSharp</AssemblyName>
+        <AssemblyName>libsoundio.Core</AssemblyName>
         <RootNamespace>LibSoundIo</RootNamespace>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="PolySharp" Version="1.15.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Internals\" />
-    </ItemGroup>
-
 </Project>
