@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <!-- Not include this dll, only native dlls. -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <NoWarn>$(NoWarn);NU5100;NU5128</NoWarn>
+
+        <!-- NuGet -->
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="**"/>
+        <Compile Remove="**"/>
+        <EmbededResources Remove="**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="libsoundio.Core/libsoundio.Core.csproj"/>
+        <ProjectReference Include="libsoundio.Runtime/libsoundio.Runtime.csproj"/>
+    </ItemGroup>
+
+</Project>

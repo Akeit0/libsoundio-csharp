@@ -3,7 +3,8 @@
     <Project Path="sandbox/MicMonitor/MicMonitor.csproj" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="src/libsoundio.csproj" />
+    <Project Path="src/libsoundio.Core/libsoundio.Core.csproj" />
     <Project Path="src/libsoundio.Runtime/libsoundio.Runtime.csproj" />
-    <Project Path="src/libsoundio/libsoundio.csproj" />
   </Folder>
 </Solution>
