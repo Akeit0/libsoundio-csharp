@@ -4,7 +4,7 @@
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/libsoundio.csproj" />
-    <Project Path="src/libsoundio.Core/libsoundio.Core.csproj" />
+    <Project Path="src/libsoundio.Interp/libsoundio.Interp.csproj" />
     <Project Path="src/libsoundio.Runtime/libsoundio.Runtime.csproj" />
   </Folder>
 </Solution>

@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <IncludeContentInPack>true</IncludeContentInPack>
+        <IsPackable>true</IsPackable>
+        <Description>native binaries of libsoundio</Description>
     </PropertyGroup>
 
     <ItemGroup>
