@@ -11,8 +11,4 @@
         <IsPackable>true</IsPackable>
         <Description>interp to libsoundio</Description>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Interp\" />
-    </ItemGroup>
 </Project>

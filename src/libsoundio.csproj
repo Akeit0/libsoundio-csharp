@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="libsoundio.Interp\libsoundio.Interp.csproj" />
+        <ProjectReference Include="libsoundio.Interop\libsoundio.Interop.csproj" />
         <ProjectReference Include="libsoundio.Runtime/libsoundio.Runtime.csproj"/>
     </ItemGroup>
 
