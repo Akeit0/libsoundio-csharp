@@ -106,8 +106,7 @@ namespace LibSoundIo.Interop
         ///  Returns whether libsoundio was compiled with backend.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_have_backend", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_have_backend(SoundIoBackend backend);
+        public static extern byte soundio_have_backend(SoundIoBackend backend);
 
         /// <summary>
         ///  Atomically update information for all connected devices. Note that calling
@@ -173,8 +172,7 @@ namespace LibSoundIo.Interop
         ///  the supplied channel layouts.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_channel_layout_equal", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_channel_layout_equal(SoundIoChannelLayout* a, SoundIoChannelLayout* b);
+        public static extern byte soundio_channel_layout_equal(SoundIoChannelLayout* a, SoundIoChannelLayout* b);
 
         [DllImport(__DllName, EntryPoint = "soundio_get_channel_name", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern IntPtr soundio_get_channel_name(SoundIoChannelId id);
@@ -219,8 +217,7 @@ namespace LibSoundIo.Interop
         ///  returns whether it found a match
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_channel_layout_detect_builtin", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_channel_layout_detect_builtin(SoundIoChannelLayout* layout);
+        public static extern byte soundio_channel_layout_detect_builtin(SoundIoChannelLayout* layout);
 
         /// <summary>
         ///  Iterates over preferred_layouts. Returns the first channel layout in
@@ -314,8 +311,7 @@ namespace LibSoundIo.Interop
         ///  SoundIoDevice::is_raw, and SoundIoDevice::aim are the same.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_device_equal", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_device_equal(SoundIoDevice* a, SoundIoDevice* b);
+        public static extern byte soundio_device_equal(SoundIoDevice* a, SoundIoDevice* b);
 
         /// <summary>
         ///  Sorts channel layouts by channel count, descending.
@@ -328,24 +324,21 @@ namespace LibSoundIo.Interop
         ///  supported formats.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_device_supports_format", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_device_supports_format(SoundIoDevice* device, SoundIoFormat format);
+        public static extern byte soundio_device_supports_format(SoundIoDevice* device, SoundIoFormat format);
 
         /// <summary>
         ///  Convenience function. Returns whether `layout` is included in the device's
         ///  supported channel layouts.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_device_supports_layout", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_device_supports_layout(SoundIoDevice* device, SoundIoChannelLayout* layout);
+        public static extern byte soundio_device_supports_layout(SoundIoDevice* device, SoundIoChannelLayout* layout);
 
         /// <summary>
         ///  Convenience function. Returns whether `sample_rate` is included in the
         ///  device's supported sample rates.
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_device_supports_sample_rate", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: MarshalAs(UnmanagedType.U1)]
-        public static extern bool soundio_device_supports_sample_rate(SoundIoDevice* device, int sample_rate);
+        public static extern byte soundio_device_supports_sample_rate(SoundIoDevice* device, int sample_rate);
 
         /// <summary>
         ///  Convenience function. Returns the available sample rate nearest to
@@ -498,7 +491,7 @@ namespace LibSoundIo.Interop
         ///  * #SoundIoErrorInvalid - outstream not opened and started
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_outstream_pause", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern SoundIoError soundio_outstream_pause(SoundIoOutStream* outstream, [MarshalAs(UnmanagedType.U1)] bool pause);
+        public static extern SoundIoError soundio_outstream_pause(SoundIoOutStream* outstream, byte pause);
 
         /// <summary>
         ///  Obtain the total number of seconds that the next frame written after the
@@ -630,7 +623,7 @@ namespace LibSoundIo.Interop
         ///  * #SoundIoErrorIncompatibleDevice - device does not support pausing/unpausing
         /// </summary>
         [DllImport(__DllName, EntryPoint = "soundio_instream_pause", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int soundio_instream_pause(SoundIoInStream* instream, [MarshalAs(UnmanagedType.U1)] bool pause);
+        public static extern int soundio_instream_pause(SoundIoInStream* instream, byte pause);
 
         /// <summary>
         ///  Obtain the number of seconds that the next frame of sound being
@@ -950,7 +943,7 @@ namespace LibSoundIo.Interop
         ///  simultaneously access the device. Raw devices do not perform automatic
         ///  resampling and thus tend to have fewer formats available.
         /// </summary>
-        [MarshalAs(UnmanagedType.U1)] public bool is_raw;
+        public byte is_raw;
         /// <summary>
         ///  Devices are reference counted. See ::soundio_device_ref and
         ///  ::soundio_device_unref.
@@ -1080,7 +1073,7 @@ namespace LibSoundIo.Interop
         ///  JACK and it means that the output stream data originates from an input
         ///  stream. Defaults to `false`.
         /// </summary>
-        [MarshalAs(UnmanagedType.U1)] public bool non_terminal_hint;
+        public byte non_terminal_hint;
         /// <summary>
         ///  computed automatically when you call ::soundio_outstream_open
         /// </summary>
@@ -1186,7 +1179,7 @@ namespace LibSoundIo.Interop
         ///  JACK and it means that the data received by the stream will be
         ///  passed on or made available to another stream. Defaults to `false`.
         /// </summary>
-        [MarshalAs(UnmanagedType.U1)] public bool non_terminal_hint;
+        public byte non_terminal_hint;
         /// <summary>
         ///  computed automatically when you call ::soundio_instream_open
         /// </summary>
